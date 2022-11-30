@@ -23,7 +23,7 @@ class DbManager {
           "CREATE TABLE Contacts(id INTEGER PRIMARY KEY autoincrement, "
               "user TEXT, "
               "phone TEXT,"
-              "check-in TEXT)",
+              "checkin TEXT)",
         );
       },
     );
@@ -39,15 +39,16 @@ class DbManager {
     );
     print("Added: " + contacts.toString());
   }
-  // Future<List<LoginCredentials>> getLogin() async {
-  //   final db = await database;
-  //   final List<Map<String, dynamic>> maps = await db.query('Login');
-  //   return List.generate(maps.length, (i) {
-  //     return LoginCredentials(
-  //       id: maps[0]['id'],
-  //       Username: maps[0]['Username'],
-  //       Password: maps[0]['Password'],
-  //     );
-  //   });
-  // }
+  Future<List<Contacts>> getContacts() async {
+    final db = await database;
+    final List<Map<String, dynamic>> maps = await db.query('contacts');
+    return List.generate(maps.length, (i) {
+      return Contacts(
+        id: maps[i]['id'],
+        user: maps[i]['user'],
+        phone: maps[i]['phone'],
+        checkin: maps[i]['checkin'],
+      );
+    });
+  }
 }

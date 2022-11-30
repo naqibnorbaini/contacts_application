@@ -1,4 +1,5 @@
 import 'package:contacts_application/ui/Add%20Contacts.dart';
+import 'package:contacts_application/ui/ViewContact.dart';
 import 'package:contacts_application/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 
@@ -37,7 +38,7 @@ class _HomeState extends State<Home> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => AddContact()),
+                      MaterialPageRoute(builder: (context) => ViewContacts()),
                     );
                   },
                   title: "View Contacts",

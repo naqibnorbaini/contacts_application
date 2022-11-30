@@ -1,15 +1,14 @@
 class Contacts {
-  final int id;
+  final int? id;
   String user;
   String phone;
   String checkin;
 
   Contacts({
-    required this.id,
+    this.id,
     required this.user,
     required this.phone,
     required this.checkin,
-
   });
 
   // Convert a Dog into a Map. The keys must correspond to the names of the

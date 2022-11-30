@@ -1,5 +1,9 @@
+import 'package:contacts_application/model/AddContactDB.dart';
+import 'package:contacts_application/model/contactmodel.dart';
 import 'package:contacts_application/widgets/buttons.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
 
 class AddContact extends StatefulWidget {
   @override
@@ -9,6 +13,8 @@ class AddContact extends StatefulWidget {
 class _AddContactState extends State<AddContact> {
   TextEditingController userController = TextEditingController();
   TextEditingController phoneNoController = TextEditingController();
+
+  String checkin = DateFormat("yyyy-mm-dd hh:mm:ss").format(DateTime.now());
 
   String user = "";
   String phoneNo = "";
@@ -36,7 +42,7 @@ class _AddContactState extends State<AddContact> {
                     ),
                     onChanged: (text) {
                       setState(() {
-                        user = userController.toString();
+
                       });
                     },
                   )),
@@ -59,7 +65,17 @@ class _AddContactState extends State<AddContact> {
                 child: CustomButton(
                   title: "Submit",
                   onPressed: (){
+                    user = userController.text;
+                    phoneNo = phoneNoController.text;
 
+                    var contacts = Contacts(
+                      user: user,
+                      phone: phoneNo,
+                      checkin: checkin
+                    );
+                    print(contacts);
+
+                    DbManager.db.insertContacts(contacts);
                   },
                 ),
               )
