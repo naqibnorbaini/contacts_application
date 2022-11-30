@@ -8,11 +8,6 @@ void main() {
 
 class MyApp extends StatelessWidget {
 
-  final routes = {
-    '/AddContacts':(context) => AddContact(),
-
-  };
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
