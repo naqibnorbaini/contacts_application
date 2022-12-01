@@ -13,46 +13,51 @@ class _WelcomeState extends State<Welcome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Center(child: Text("Welcome"),),),
+      appBar: AppBar(
+        title: Center(
+          child: Text("Welcome"),
+        ),
+      ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(
             children: [
-              Text("Welcome!",
+              const Text(
+                "Welcome!",
                 style: TextStyle(fontSize: 50),
               ),
-
-              Text("This is a technical assesment for Vimigo",
-              style: TextStyle(fontSize: 20),
+              const Text(
+                "This is a technical assesment for Vimigo",
+                style: TextStyle(fontSize: 20),
                 textAlign: TextAlign.center,
               ),
-
-              Padding(
+              const Padding(
                 padding: const EdgeInsets.all(10.0),
-                child: Text("1. There will be two buttons on the next page, Add Contacts and View Contacts buttons",
-                style: TextStyle(fontSize: 20),
-                textAlign: TextAlign.center,),
-              ),
-
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Text("2. Add Contact will lead user to a page where the user can add a contact info into the database. User will need contact name and phone number",
+                child: Text(
+                  "1. There will be two buttons on the next page, Add Contacts and View Contacts buttons",
                   style: TextStyle(fontSize: 20),
-                  textAlign: TextAlign.center,),
+                  textAlign: TextAlign.center,
+                ),
               ),
-
-              Padding(
+              const Padding(
                 padding: const EdgeInsets.all(10.0),
-                child: Text("3. View contact will lead user to a page where the user can view the contacts saved and can search for a contact using contact's name. Sort button will sort the contact alphabetically ",
+                child: Text(
+                  "2. Add Contact will lead user to a page where the user can add a contact info into the database. User will need contact name and phone number",
                   style: TextStyle(fontSize: 20),
-                  textAlign: TextAlign.center,),
+                  textAlign: TextAlign.center,
+                ),
               ),
-
-
-
+              const Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Text(
+                  "3. View contact will lead user to a page where the user can view the contacts saved and can search for a contact using contact's name. Sort button will sort the contact alphabetically ",
+                  style: TextStyle(fontSize: 20),
+                  textAlign: TextAlign.center,
+                ),
+              ),
               CustomButton(
-                  onPressed: (){
+                  onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => Home()),
