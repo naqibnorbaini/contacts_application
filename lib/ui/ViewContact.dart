@@ -54,47 +54,47 @@ class _ViewContactsState extends State<ViewContacts> {
       appBar: AppBar(
         title: const Center(child: Text("View Contacts")),
       ),
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Expanded(
-                    flex: 5,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: TextField(
-                        onChanged: (value) {
-                          _runFilter(value);
-                        },
-                        decoration: const InputDecoration(
-                            labelText: "Search",
-                            hintText: "Search",
-                            prefixIcon: Icon(Icons.search),
-                            border: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(25.0)))),
-                      ),
+      body: Center(
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  flex: 5,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextField(
+                      onChanged: (value) {
+                        _runFilter(value);
+                      },
+                      decoration: const InputDecoration(
+                          labelText: "Search",
+                          hintText: "Search",
+                          prefixIcon: Icon(Icons.search),
+                          border: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(25.0)))),
                     ),
                   ),
-                  Expanded(
-                      flex: 1,
-                      child: IconButton(
-                        icon: Icon(Icons.sort),
-                        iconSize: 30,
-                        onPressed: () {
-                          constant.contactList.sort((a, b) =>
-                              a.user.toString().compareTo(b.user.toString()));
-                          setState(() {
-                            constant.contactList;
-                          });
-                        },
-                      ))
-                ],
-              ),
+                ),
+                Expanded(
+                    flex: 1,
+                    child: IconButton(
+                      icon: Icon(Icons.sort),
+                      iconSize: 30,
+                      onPressed: () {
+                        constant.contactList.sort((a, b) =>
+                            a.user.toString().compareTo(b.user.toString()));
+                        setState(() {
+                          constant.contactList;
+                        });
+                      },
+                    ))
+              ],
+            ),
 
-              ListView.builder(
+            Expanded(
+              child: ListView.builder(
                 itemCount: _foundUser.length,
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
@@ -102,7 +102,7 @@ class _ViewContactsState extends State<ViewContacts> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => ContactDetail()),
+                        MaterialPageRoute(builder: (context) => ContactDetail(user: _foundUser[index].user, phone: _foundUser[index].phone, checkin: _foundUser[index].checkin,)),
                       );
                     },
                     child: ListTile(
@@ -112,9 +112,9 @@ class _ViewContactsState extends State<ViewContacts> {
                     ),
                   );
                 },
-              )
-            ],
-          ),
+              ),
+            )
+          ],
         ),
       ),
     );
