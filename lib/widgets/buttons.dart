@@ -9,15 +9,15 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  RaisedButton(
-      child:  Text(title, style: const TextStyle(fontSize: 20),),
-      onPressed: onPressed,
-      shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(16.0))),
-      color: Colors.blue,
-      textColor: Colors.white,
-      padding: const EdgeInsets.fromLTRB(15, 8, 15, 10),
-      splashColor: Colors.grey,
-    );
+    return ElevatedButton(
+        child: Text(title, style: const TextStyle(fontSize: 20, color: Colors.white),),
+        onPressed: onPressed,
+        style: const ButtonStyle(
+          padding: MaterialStatePropertyAll(EdgeInsets.fromLTRB(15, 8, 15, 10)),
+          foregroundColor: MaterialStatePropertyAll(Colors.blue),
+          shape: MaterialStatePropertyAll(RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(16.0))),
+          ))
+        );
   }
 }
